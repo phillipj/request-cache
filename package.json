@@ -1,0 +1,22 @@
+{
+  "name": "request-cache",
+  "version": "1.0.0-alpha1",
+  "description": "Cache wrapper around the popular request.js module.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phillipj/request-cache.git"
+  },
+  "author": "Phillip Johnsen <johphi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phillipj/request-cache/issues"
+  },
+  "homepage": "https://github.com/phillipj/request-cache",
+  "devDependencies": {
+    "request": "^2.55.0"
+  }
+}
