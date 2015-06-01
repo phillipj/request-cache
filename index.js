@@ -7,10 +7,18 @@ function hasCache(uri) {
   return !!_cache[uri]
 }
 
+function shouldCache(res) {
+  var cacheControl = res.headers['cache-control']
+  return cacheControl && cacheControl !== 'no-cache'
+}
+
 function responseCallback(uri, callback) {
-  return function onResponse(err, response, body) {
-    _cache[uri] = response
-    callback(err, response, body)
+  return function onResponse(err, res, body) {
+    if (shouldCache(res)) {
+      _cache[uri] = res
+    }
+
+    callback(err, res, body)
   }
 }
 

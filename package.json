@@ -4,7 +4,7 @@
   "description": "Cache wrapper around the popular request.js module.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap --reporter=spec test/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/phillipj/request-cache",
   "devDependencies": {
-    "request": "^2.55.0"
+    "nock": "^2.3.0",
+    "request": "^2.55.0",
+    "tap": "^1.2.0"
   }
 }
