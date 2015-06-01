@@ -1,4 +1,4 @@
-# request-cache
+# request-cache  [![Build Status](https://api.travis-ci.org/phillipj/request-cache.png)](http://travis-ci.org/phillipj/request-cache)
 
 Cache wrapper around the popular request.js module.
 
