@@ -1,7 +1,6 @@
-var util    = require('util')
-var extend  = require('util')._extend
+'use strict'
 
-var _cache  = {}
+var _cache = {}
 
 function hasCache(uri) {
   return !!_cache[uri]
@@ -25,7 +24,7 @@ function responseCallback(uri, callback) {
 module.exports = function cache(request) {
 
   return function requestWrapper(uri, options, callback) {
-    if (typeof options == 'function') {
+    if (typeof options === 'function') {
       callback = options
       options = {}
     }
