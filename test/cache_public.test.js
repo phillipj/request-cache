@@ -7,6 +7,8 @@ var cache   = require('../')
 var request = cache(require('request'))
 
 tape('[Cache-Control: public] Caches response with a future Expires header', function(t) {
+  cache._flushCache()
+
   nock('http://example.com')
     .get('/cacheable')
     .reply(200, 'OK', {

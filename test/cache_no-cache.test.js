@@ -7,6 +7,8 @@ var cache   = require('../')
 var request = cache(require('request'))
 
 tape('[Cache-Control: no-cache] Does not cache response', function(t) {
+  cache._flushCache()
+
   nock('http://example.com')
     .get('/not-cacheable')
     .reply(200, 'OK', {
