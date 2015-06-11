@@ -31,7 +31,7 @@ function responseCallback(uri, callback) {
 
 module.exports = function cache(request) {
 
-  return function requestWrapper(uri, options, callback) {
+  function requestWrapper(uri, options, callback) {
     if (typeof options === 'function') {
       callback = options
       options = {}
@@ -51,6 +51,12 @@ module.exports = function cache(request) {
 
     request(uri, options, responseCallback(uri, callback))
   }
+
+  ['get', 'patch', 'post', 'put', 'head', 'del'].forEach(function(method) {
+    requestWrapper[method] = request[method]
+  })
+
+  return requestWrapper
 }
 
 module.exports._flushCache = function() {
