@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/phillipj/request-cache",
   "devDependencies": {
-    "request": "^2.55.0"
+    "request": "^2.60.0"
   }
 }

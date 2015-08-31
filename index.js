@@ -20,6 +20,7 @@ module.exports = function cache(request) {
     }
 
     if (hasCache(uri)) {
+      console.log('Returning cached response for', uri);
       return callback(null, _cache[uri], _cache[uri].body)
     }
 
