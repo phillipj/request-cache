@@ -5,6 +5,13 @@
 
 Cache wrapper around the popular request.js module.
 
+## TL;DR
+
+- Has the same API as [request](https://www.npmjs.com/package/request)
+- Cache content based on response cache headers
+- You control which version of `request` to use
+- Follows [RFC7234](https://tools.ietf.org/html/rfc7234)
+
 ## Usage
 
 ```js
