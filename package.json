@@ -4,7 +4,7 @@
   "description": "Cache wrapper around the popular request.js module.",
   "main": "index.js",
   "scripts": {
-    "test": "eslint index.js test/*.js && tape test/*.test.js | tap-spec"
+    "test": "standard index.js test/*.js && tape test/*.test.js | tap-spec"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,9 @@
   },
   "homepage": "https://github.com/phillipj/request-cache",
   "devDependencies": {
-    "eslint": "^0.22.1",
     "nock": "^2.3.0",
     "request": "^2.55.0",
+    "standard": "^5.3.1",
     "tap-spec": "^4.0.0",
     "tape": "^4.0.0"
   }

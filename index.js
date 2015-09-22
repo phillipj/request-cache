@@ -4,18 +4,18 @@ var extend = require('util')._extend
 
 var _cache = {}
 
-function hasCache(uri) {
+function hasCache (uri) {
   return !!_cache[uri]
 }
 
-function shouldCache(res) {
+function shouldCache (res) {
   var cacheControl = res.headers['cache-control']
-  var etag  = res.headers.etag
+  var etag = res.headers.etag
   return (cacheControl && cacheControl !== 'no-cache') || !!etag
 }
 
-function responseCallback(uri, callback) {
-  return function onResponse(err, res, body) {
+function responseCallback (uri, callback) {
+  return function onResponse (err, res, body) {
     if (!err && shouldCache(res)) {
       _cache[uri] = res
     }
@@ -29,9 +29,8 @@ function responseCallback(uri, callback) {
   }
 }
 
-module.exports = function cache(request) {
-
-  function requestWrapper(uri, options, callback) {
+module.exports = function cache (request) {
+  function requestWrapper (uri, options, callback) {
     if (typeof options === 'function') {
       callback = options
       options = {}
@@ -52,13 +51,13 @@ module.exports = function cache(request) {
     request(uri, options, responseCallback(uri, callback))
   }
 
-  ['get', 'patch', 'post', 'put', 'head', 'del'].forEach(function(method) {
+  ['get', 'patch', 'post', 'put', 'head', 'del'].forEach(function (method) {
     requestWrapper[method] = request[method]
   })
 
   return requestWrapper
 }
 
-module.exports._flushCache = function() {
+module.exports._flushCache = function () {
   _cache = {}
 }

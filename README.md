@@ -1,4 +1,7 @@
-# request-cache  [![Build Status](https://api.travis-ci.org/phillipj/request-cache.png)](http://travis-ci.org/phillipj/request-cache)
+# request-cache
+
+[![Build Status](https://api.travis-ci.org/phillipj/request-cache.png?branch=master)](http://travis-ci.org/phillipj/request-cache)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 Cache wrapper around the popular request.js module.
 
