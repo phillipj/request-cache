@@ -1,6 +1,7 @@
 'use strict'
 
 var extend = require('util')._extend
+var isCacheable = require('is-cacheable')
 
 var _cache = {}
 
@@ -8,15 +9,13 @@ function hasCache (uri) {
   return !!_cache[uri]
 }
 
-function shouldCache (res) {
-  var cacheControl = res.headers['cache-control']
-  var etag = res.headers.etag
-  return (cacheControl && cacheControl !== 'no-cache') || !!etag
-}
-
 function responseCallback (uri, callback) {
   return function onResponse (err, res, body) {
-    if (!err && shouldCache(res)) {
+    if (err) {
+      return callback(err)
+    }
+
+    if (isCacheable(res.headers)) {
       _cache[uri] = res
     }
 
